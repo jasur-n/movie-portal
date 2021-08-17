@@ -36,11 +36,17 @@ export default function Movie({
 
 export async function getServerSideProps(context) {
   const id = context.params.movieId;
-  const res = await axios.get(
-    `https://api.itv.uz/api/content/main/2/show/${id}?user=4bb5a3841629114633e611b7590584ec044`
-  );
 
-  return {
-    props: res.data.data.movie
-  };
+  try {
+    const res = await axios.get(
+      `https://api.itv.uz/api/content/main/2/show/${id}?user=4bb5a3841629114633e611b7590584ec044`
+    );
+    return {
+      props: res.data.data.movie
+    };
+  } catch (err) {
+    return {
+      notFound: true
+    };
+  }
 }
