@@ -1,22 +1,34 @@
+/* eslint-disable react/prop-types */
 import axios from 'axios';
 import Layout from '../../components/layout';
 import MovieDetails from '../../components/movie-details';
 
-export default function Movie({ data }) {
-  console.log(data.files.trailers);
+export default function Movie({
+  title,
+  files,
+  description,
+  year,
+  countries_str: countries,
+  genres_str: genres,
+  directors,
+  scenarists,
+  producers,
+  actors
+}) {
   return (
     <Layout>
       <MovieDetails
-        title={data.title}
-        poster={data.files.poster_url}
-        description={data.description}
-        year={data.year}
-        country={data.countries_str}
-        genre={data.genres_str}
-        directors={data.directors}
-        scenarists={data.scenarists}
-        producers={data.producers}
-        actors={data.actors}
+        title={title}
+        poster={files.poster_url}
+        description={description}
+        year={year}
+        country={countries}
+        genre={genres}
+        directors={directors}
+        scenarists={scenarists}
+        producers={producers}
+        actors={actors}
+        trailers={files.trailers}
       />
     </Layout>
   );
@@ -29,6 +41,6 @@ export async function getServerSideProps(context) {
   );
 
   return {
-    props: { data: res.data.data.movie }
+    props: res.data.data.movie
   };
 }

@@ -1,8 +1,8 @@
 import { Disclosure } from '@headlessui/react';
-import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -86,6 +86,15 @@ export default function Navbar({ routes }) {
     </Disclosure>
   );
 }
+
+Navbar.propTypes = {
+  routes: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
+    })
+  )
+};
 
 Navbar.defaultProps = {
   routes: ROUTES

@@ -32,7 +32,7 @@ MovieList.propTypes = {
   title: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      poster: PropTypes.string.isRequired,
+      poster: PropTypes.string,
       title: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
       id: PropTypes.number.isRequired
