@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function MovieItem({ poster, title, year, id }) {
   return (
-    <li className="relative">
+    <li>
       <Link href={`/movie/${id}`}>
         <div className="group cursor-pointer block w-full aspect-w-5 aspect-h-7 rounded-lg focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
           <img
@@ -26,6 +26,6 @@ export default function MovieItem({ poster, title, year, id }) {
 MovieItem.propTypes = {
   poster: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  year: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired
 };

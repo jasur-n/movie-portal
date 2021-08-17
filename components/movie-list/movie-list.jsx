@@ -3,7 +3,7 @@ import MovieItem from './movie-item';
 
 export default function MovieList({ title, items }) {
   return (
-    <div className="relative pt-14 pb-20 px-4 sm:px-6 lg:pt-20 lg:pb-28 lg:px-8">
+    <div className="relative pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8">
       <div className="relative max-w-7xl mx-auto">
         {title && (
           <h2 className="text-3xl mb-10 tracking-tight font-extrabold text-gray-900 sm:text-4xl">
@@ -34,8 +34,8 @@ MovieList.propTypes = {
     PropTypes.shape({
       poster: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      year: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired
+      year: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired
     })
   ).isRequired
 };
