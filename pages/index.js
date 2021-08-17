@@ -5,10 +5,9 @@ import Layout from '../components/layout';
 import MovieList from '../components/movie-list';
 import Pagination from '../components/pagination';
 
-export default function Home() {
-  const [movies, setMovies] = useState([]);
-  const [moviesTotalNumber, setMoviesTotalNumber] = useState();
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+export default function Home({ fetchedMovies, moviesNumber, moviesPerPage }) {
+  const [movies, setMovies] = useState(fetchedMovies);
+  const [moviesTotalNumber, setMoviesTotalNumber] = useState(moviesNumber);
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     axios
@@ -19,7 +18,6 @@ export default function Home() {
         const { data } = response.data;
         setMovies(data.movies);
         setMoviesTotalNumber(data.total_items);
-        setItemsPerPage(data.items_per_page);
       })
       .catch(() => {
         throw new Error('Something went wrong while fetching movies...');
@@ -38,9 +36,23 @@ export default function Home() {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
           itemsNumber={moviesTotalNumber}
-          itemsPerPage={itemsPerPage}
+          itemsPerPage={moviesPerPage}
         />
       )}
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const res = await axios.get(
+    'https://api.itv.uz/api/content/main/2/list?user=4bb5a3841629114633e611b7590584ec044'
+  );
+  const { data } = res.data;
+  return {
+    props: {
+      fetchedMovies: data.movies,
+      moviesNumber: data.total_items,
+      moviesPerPage: data.items_per_page
+    }
+  };
 }

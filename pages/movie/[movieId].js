@@ -3,6 +3,7 @@ import Layout from '../../components/layout';
 import MovieDetails from '../../components/movie-details';
 
 export default function Movie({ data }) {
+  console.log(data.files.trailers);
   return (
     <Layout>
       <MovieDetails
