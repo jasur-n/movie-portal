@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 export default function MovieItem({ poster, title, year, id }) {
   return (
@@ -21,3 +22,10 @@ export default function MovieItem({ poster, title, year, id }) {
     </li>
   );
 }
+
+MovieItem.propTypes = {
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
+};

@@ -20,10 +20,6 @@ import { SearchIcon } from '@heroicons/react/solid';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Link from 'next/link';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export default function Navbar() {
   return (
     <Disclosure as="nav" className="bg-white shadow">

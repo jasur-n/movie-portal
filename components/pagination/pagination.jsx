@@ -159,10 +159,10 @@ const Pagination = ({
   );
 };
 Pagination.propTypes = {
-  currentPage: PropTypes.number.isRequiindigo,
-  setCurrentPage: PropTypes.func.isRequiindigo,
-  itemsNumber: PropTypes.number.isRequiindigo,
-  itemsPerPage: PropTypes.number.isRequiindigo
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  itemsNumber: PropTypes.number.isRequired,
+  itemsPerPage: PropTypes.number.isRequired
 };
 
 Pagination.defaultProps = {};

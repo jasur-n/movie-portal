@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Navbar from '../navbar';
 
 export default function Layout({ children }) {
@@ -8,3 +9,11 @@ export default function Layout({ children }) {
     </>
   );
 }
+
+Layout.propTypes = {
+  children: PropTypes.node
+};
+
+Layout.defaultProps = {
+  children: null
+};
