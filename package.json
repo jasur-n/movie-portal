@@ -9,6 +9,8 @@
     "prettier-format": "prettier --config .prettierrc 'pages/**/*.js' --write"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.3",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "axios": "^0.21.1",
     "next": "latest",
