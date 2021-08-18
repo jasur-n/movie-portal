@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import MovieItem from './movie-item';
+import Pagination from '../pagination/pagination';
 
 export default function MovieList({ title, items }) {
   return (
-    <div className="relative pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8">
-      <div className="relative max-w-7xl mx-auto">
+    <div>
+      <div className="relative max-w-7xl mx-auto pb-20 px-4 sm:px-6 lg:pb-28 lg:px-8">
         {title && (
           <h2 className="text-3xl mb-10 tracking-tight font-extrabold text-gray-900 sm:text-4xl">
             {title}
@@ -24,6 +25,12 @@ export default function MovieList({ title, items }) {
             ))}
         </ul>
       </div>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        itemsNumber={moviesTotalNumber}
+        itemsPerPage={moviesPerPage}
+      />
     </div>
   );
 }

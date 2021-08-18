@@ -48,17 +48,8 @@ export default function Home({
     <Layout>
       <Head>
         <title>Movies</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <MovieList title="Movies" items={movies} />
-      {moviesTotalNumber && (
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          itemsNumber={moviesTotalNumber}
-          itemsPerPage={moviesPerPage}
-        />
-      )}
     </Layout>
   );
 }

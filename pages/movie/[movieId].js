@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import axios from 'axios';
+import Head from 'next/head';
 import Layout from '../../components/layout';
 import MovieDetails from '../../components/movie-details';
 
@@ -16,21 +17,26 @@ export default function Movie({
   actors
 }) {
   return (
-    <Layout>
-      <MovieDetails
-        title={title}
-        poster={files.poster_url}
-        description={description}
-        year={year}
-        country={countries}
-        genre={genres}
-        directors={directors}
-        scenarists={scenarists}
-        producers={producers}
-        actors={actors}
-        trailers={files.trailers}
-      />
-    </Layout>
+    <>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <Layout>
+        <MovieDetails
+          title={title}
+          poster={files.poster_url}
+          description={description}
+          year={year}
+          country={countries}
+          genre={genres}
+          directors={directors}
+          scenarists={scenarists}
+          producers={producers}
+          actors={actors}
+          trailers={files.trailers}
+        />
+      </Layout>
+    </>
   );
 }
 
