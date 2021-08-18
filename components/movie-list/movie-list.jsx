@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import MovieItem from './movie-item';
-import Pagination from '../pagination/pagination';
 
 export default function MovieList({ title, items }) {
   return (
@@ -25,12 +24,6 @@ export default function MovieList({ title, items }) {
             ))}
         </ul>
       </div>
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        itemsNumber={moviesTotalNumber}
-        itemsPerPage={moviesPerPage}
-      />
     </div>
   );
 }

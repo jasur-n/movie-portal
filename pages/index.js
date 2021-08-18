@@ -50,6 +50,14 @@ export default function Home({
         <title>Movies</title>
       </Head>
       <MovieList title="Movies" items={movies} />
+      {moviesTotalNumber && (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          itemsNumber={moviesTotalNumber}
+          itemsPerPage={moviesPerPage}
+        />
+      )}
     </Layout>
   );
 }
